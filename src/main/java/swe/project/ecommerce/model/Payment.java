@@ -15,7 +15,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @ToString
 @Entity
-@Table(name = "payment")
+@Table(name = "payments")
 public class Payment {
     @Id
     @UuidGenerator
