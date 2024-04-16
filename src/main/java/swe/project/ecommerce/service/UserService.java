@@ -1,14 +1,13 @@
 package swe.project.ecommerce.service;
 
-import org.springframework.stereotype.Service;
-import swe.project.ecommerce.model.User;
+import swe.project.ecommerce.dto.UserDTO;
 
 import java.util.List;
 import java.util.UUID;
 
 public interface UserService {
-    List<User> getAllUsers();
-    User getUserById(UUID id);
-    void createUser(User user);
+    List<UserDTO> getAllUsers();
+    UserDTO getUserById(UUID id);
+    void createUser(UserDTO user);
     void deleteUserById(UUID id);
 }

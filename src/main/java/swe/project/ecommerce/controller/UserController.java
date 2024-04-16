@@ -2,6 +2,7 @@ package swe.project.ecommerce.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import swe.project.ecommerce.dto.UserDTO;
 import swe.project.ecommerce.model.User;
 import swe.project.ecommerce.service.UserService;
 
@@ -18,20 +19,19 @@ public class UserController {
         this.userService = userService;
     }
 
-
     @GetMapping
-    public List<User> getAllUsers() {
+    public List<UserDTO> getAllUsers() {
         return userService.getAllUsers();
     }
 
     @GetMapping("/{id}")
-    public User getById(@PathVariable UUID id) {
+    public UserDTO getById(@PathVariable UUID id) {
         return userService.getUserById(id);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
-    public void createUser(@RequestBody User user) {
+    public void createUser(@RequestBody UserDTO user) {
         userService.createUser(user);
     }
 
