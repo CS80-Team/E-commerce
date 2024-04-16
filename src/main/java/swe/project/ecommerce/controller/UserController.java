@@ -3,44 +3,41 @@ package swe.project.ecommerce.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import swe.project.ecommerce.model.User;
-import swe.project.ecommerce.repository.UserRepository;
+import swe.project.ecommerce.service.UserService;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping(path = "/e-commerce/users")
 public class UserController {
 
-    private final UserRepository repository;
+    private final UserService userService;
 
-    public UserController(UserRepository userRepository) {
-        this.repository = userRepository;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
+
 
     @GetMapping
     public List<User> getAllUsers() {
-        return repository.findAll();
+        return userService.getAllUsers();
     }
 
     @GetMapping("/{id}")
-    public User getById(@PathVariable Integer id) {
-        return repository.findById(id).orElse(null);
+    public User getById(@PathVariable UUID id) {
+        return userService.getUserById(id);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
     public void createUser(@RequestBody User user) {
-        repository.save(user);
+        userService.createUser(user);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteById(@PathVariable Integer id) {
-        repository.deleteById(id);
-    }
-
-    @DeleteMapping
-    public void deleteAllUsers() {
-        repository.deleteAll();
+    public void deleteById(@PathVariable UUID id) {
+        userService.deleteUserById(id);
     }
 
 }

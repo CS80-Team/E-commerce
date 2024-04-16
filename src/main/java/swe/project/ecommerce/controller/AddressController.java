@@ -2,23 +2,22 @@ package swe.project.ecommerce.controller;
 
 import org.springframework.web.bind.annotation.*;
 import swe.project.ecommerce.model.Address;
-import swe.project.ecommerce.repository.AddressRepository;
+import swe.project.ecommerce.service.AddressService;
 
 import java.util.List;
 
 @RestController
 @RequestMapping(path = "/e-commerce/addresses")
 public class AddressController {
-    private final AddressRepository addressRepository;
+    private final AddressService addressService;
 
-
-    public AddressController(AddressRepository addressRepository) {
-        this.addressRepository = addressRepository;
+    public AddressController(AddressService addressService) {
+        this.addressService = addressService;
     }
 
     @GetMapping
     public List<Address> getAllAddresses() {
-        return addressRepository.findAll();
+        return addressService.getAllAddresses();
     }
 
 

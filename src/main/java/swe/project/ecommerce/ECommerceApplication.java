@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import swe.project.ecommerce.model.Address;
 import swe.project.ecommerce.model.User;
 import swe.project.ecommerce.repository.AddressRepository;
@@ -19,7 +20,7 @@ public class ECommerceApplication {
 		SpringApplication.run(ECommerceApplication.class, args);
 	}
 
-	//    @Bean
+//	@Bean
 	CommandLineRunner commandLineRunner(UserRepository userRepository,
 										AddressRepository addressRepository) {
 		return args -> {

@@ -6,6 +6,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.util.List;
+import java.util.UUID;
 
 
 @AllArgsConstructor
@@ -16,8 +17,9 @@ import java.util.List;
 @MappedSuperclass
 public class Person {
     @Id
-    @GeneratedValue
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "id", nullable = false, unique = true, updatable = false)
+    private UUID id;
 
     private byte[] profile_pic;
     private String first_name;

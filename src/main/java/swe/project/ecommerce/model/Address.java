@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
+import java.util.UUID;
+
 @Entity
 @Table
 @AllArgsConstructor
@@ -16,8 +18,9 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class Address {
     @Id
-    @GeneratedValue
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "id", nullable = false, unique = true, updatable = false)
+    private UUID id;
 
     private String title;
     private String street;
