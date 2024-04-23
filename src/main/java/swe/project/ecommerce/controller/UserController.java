@@ -12,7 +12,6 @@ import java.util.UUID;
 @RestController
 @RequestMapping(path = "/e-commerce/users")
 public class UserController {
-
     private final UserService userService;
 
     public UserController(UserService userService) {

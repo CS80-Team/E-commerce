@@ -6,8 +6,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import swe.project.ecommerce.model.Address;
+import swe.project.ecommerce.model.Review;
 import swe.project.ecommerce.model.User;
 import swe.project.ecommerce.repository.AddressRepository;
+import swe.project.ecommerce.repository.ReviewRepository;
 import swe.project.ecommerce.repository.UserRepository;
 
 import java.time.LocalDateTime;
@@ -21,14 +23,15 @@ public class ECommerceApplication {
 	}
 
 //	@Bean
-	CommandLineRunner commandLineRunner(UserRepository userRepository,
-										AddressRepository addressRepository) {
+	CommandLineRunner commandLineRunner(ReviewRepository reviewRepository,
+										AddressRepository addressRepository,
+										UserRepository userRepository) {
 		return args -> {
 			Faker faker = new Faker();
 
 			var list = new ArrayList<Address>();
 			var item = Address.builder()
-					.title("camp cesar")
+					.title("Miami")
 					.city("Alex")
 					.country("Egypt")
 					.phoneNumber("0123546")
@@ -51,6 +54,14 @@ public class ECommerceApplication {
 					.addressList(list)
 					.build();
 			userRepository.save(user);
+
+			var review = Review.builder()
+					.title("First Review")
+					.body("This is a Review, bla bla")
+					.user(user)
+					.build();
+
+			reviewRepository.save(review);
 		};
 	}
 }

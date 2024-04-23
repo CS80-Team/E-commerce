@@ -1,9 +1,9 @@
 package swe.project.ecommerce.service;
 
-import swe.project.ecommerce.model.Address;
+import swe.project.ecommerce.dto.AddressDTO;
 
 import java.util.List;
 
 public interface AddressService {
-    List<Address> getAllAddresses();
+    List<AddressDTO> getAllAddresses();
 }

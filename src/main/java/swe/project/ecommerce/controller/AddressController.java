@@ -1,6 +1,7 @@
 package swe.project.ecommerce.controller;
 
 import org.springframework.web.bind.annotation.*;
+import swe.project.ecommerce.dto.AddressDTO;
 import swe.project.ecommerce.model.Address;
 import swe.project.ecommerce.service.AddressService;
 
@@ -16,9 +17,7 @@ public class AddressController {
     }
 
     @GetMapping
-    public List<Address> getAllAddresses() {
+    public List<AddressDTO> getAllAddresses() {
         return addressService.getAllAddresses();
     }
-
-
 }
