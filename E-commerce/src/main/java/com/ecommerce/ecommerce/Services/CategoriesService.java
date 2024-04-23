@@ -5,19 +5,17 @@ import com.ecommerce.ecommerce.Mappers.CategoriesMapper;
 import com.ecommerce.ecommerce.Repositories.CategoriesRepository;
 import com.ecommerce.ecommerce.models.Categories;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
-public class CategoiresService {
+public class CategoriesService {
     final private CategoriesRepository categoriesRepository ;
     final private CategoriesMapper categoriesMapper;
 
-    public CategoiresService (CategoriesRepository categoriesRepository, CategoriesMapper categoriesMapper) {
+    public CategoriesService(CategoriesRepository categoriesRepository, CategoriesMapper categoriesMapper) {
         this.categoriesRepository = categoriesRepository;
         this.categoriesMapper = categoriesMapper;
     }
