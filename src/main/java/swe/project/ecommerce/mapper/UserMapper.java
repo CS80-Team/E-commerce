@@ -5,27 +5,35 @@ import org.springframework.stereotype.Service;
 import swe.project.ecommerce.dto.UserDTO;
 import swe.project.ecommerce.model.User;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+
 
 @Service
 public class UserMapper {
     public static UserDTO mapToUserDTO(User user) {
-        return new UserDTO(
+        return new UserDTO (
                 user.getId(),
                 user.getFirst_name(),
                 user.getLast_name(),
-                user.getEmail(),
                 user.getUsername(),
+                user.getEmail(),
                 user.isEmailVerified()
         );
     }
 
     public static User mapToUser(UserDTO userDTO) {
-        User user = new User();
-        user.setId(userDTO.id());
-        user.setFirst_name(userDTO.first_name());
-        user.setLast_name(userDTO.last_name());
-        user.setEmail(userDTO.email());
-        user.setEmailVerified(userDTO.emailVerified());
-        return user;
+        return new User(
+                userDTO.id(),
+                new byte[10],
+                userDTO.first_name(),
+                userDTO.last_name(),
+                userDTO.username(),
+                userDTO.email(),
+                "Hashed Password",
+                userDTO.emailVerified(),
+                new ArrayList<>(),
+                LocalDateTime.now()
+        );
     }
 }

@@ -7,6 +7,7 @@ import swe.project.ecommerce.repository.AddressRepository;
 import swe.project.ecommerce.service.AddressService;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -21,5 +22,10 @@ public class AddressServiceImpl implements AddressService {
     @Override
     public List<AddressDTO> getAllAddresses() {
         return addressRepository.findAll().stream().map(AddressMapper::mapToAddressDTO).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<AddressDTO> getAllAddressesByUserId(UUID id) {
+        return addressRepository.getAddressesById(id);
     }
 }

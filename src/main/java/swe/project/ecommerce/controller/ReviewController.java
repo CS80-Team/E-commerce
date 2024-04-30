@@ -1,11 +1,8 @@
 package swe.project.ecommerce.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 import swe.project.ecommerce.dto.ReviewDTO;
-import swe.project.ecommerce.model.Review;
 import swe.project.ecommerce.service.ReviewService;
 
 import java.util.List;
@@ -29,5 +26,16 @@ public class ReviewController {
     @GetMapping("/{id}")
     public List<ReviewDTO> getAllReviewsByUserId(@PathVariable UUID id) {
         return reviewService.getAllReviewsByUserId(id);
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("")
+    public void createReview(@RequestBody ReviewDTO reviewDTO) {
+        reviewService.createReview(reviewDTO);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteReviewById(@PathVariable UUID id) {
+        reviewService.deleteReviewById(id);
     }
 }

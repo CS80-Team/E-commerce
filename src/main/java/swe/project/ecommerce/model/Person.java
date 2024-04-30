@@ -5,12 +5,12 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
 @SuperBuilder
@@ -38,4 +38,26 @@ public class Person {
 
     @OneToMany
     private List<Address> addressList;
+
+    public Person() {}
+
+    public Person(UUID id,
+                  byte[] profile_pic,
+                  String first_name,
+                  String last_name,
+                  String username,
+                  String email,
+                  String password,
+                  boolean emailVerified,
+                  ArrayList<Address> addressList) {
+        this.id = id;
+        this.profile_pic = profile_pic;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.emailVerified = emailVerified;
+        this.addressList = addressList;
+    }
 }

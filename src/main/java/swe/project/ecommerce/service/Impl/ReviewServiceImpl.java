@@ -26,6 +26,16 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
+    public void createReview(ReviewDTO reviewDTO) {
+        reviewRepository.save(ReviewMapper.mapToReview(reviewDTO));
+    }
+
+    @Override
+    public void deleteReviewById(UUID id) {
+        reviewRepository.deleteById(id);
+    }
+
+    @Override
     public List<ReviewDTO> getAllReviewsByUserId(UUID id) {
         return reviewRepository.getReviewsByUserId(id);
     }

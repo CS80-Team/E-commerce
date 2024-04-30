@@ -3,7 +3,6 @@ package swe.project.ecommerce.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import swe.project.ecommerce.dto.UserDTO;
-import swe.project.ecommerce.model.User;
 import swe.project.ecommerce.service.UserService;
 
 import java.util.List;
@@ -18,7 +17,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public List<UserDTO> getAllUsers() {
         return userService.getAllUsers();
     }
@@ -29,9 +28,9 @@ public class UserController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("")
-    public void createUser(@RequestBody UserDTO user) {
-        userService.createUser(user);
+    @PostMapping("/add")
+    public void createUser(@RequestBody UserDTO userDTO) {
+        userService.createUser(userDTO);
     }
 
     @DeleteMapping("/{id}")

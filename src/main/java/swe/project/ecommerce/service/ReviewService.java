@@ -9,4 +9,8 @@ public interface ReviewService {
     List<ReviewDTO> getAllReviewsByUserId(UUID id);
 
     List<ReviewDTO> getAllReviews();
+
+    void createReview(ReviewDTO reviewDTO);
+
+    void deleteReviewById(UUID id);
 }

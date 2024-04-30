@@ -3,7 +3,6 @@ package swe.project.ecommerce.service.Impl;
 import org.springframework.stereotype.Service;
 import swe.project.ecommerce.dto.UserDTO;
 import swe.project.ecommerce.mapper.UserMapper;
-import swe.project.ecommerce.model.User;
 import swe.project.ecommerce.repository.UserRepository;
 import swe.project.ecommerce.service.UserService;
 
@@ -32,8 +31,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void createUser(UserDTO userDTO) {
-        User user = UserMapper.mapToUser(userDTO);
-        userRepository.save(user);
+        userRepository.save(UserMapper.mapToUser(userDTO));
     }
 
     @Override

@@ -7,7 +7,7 @@ import swe.project.ecommerce.model.Review;
 @Service
 public class ReviewMapper {
     public static ReviewDTO mapToReviewDTO(Review review) {
-        return new ReviewDTO (
+        return new ReviewDTO(
                 review.getId(),
                 review.getTitle(),
                 review.getBody()
@@ -21,5 +21,4 @@ public class ReviewMapper {
         review.setBody(reviewDTO.body());
         return review;
     }
-
 }
