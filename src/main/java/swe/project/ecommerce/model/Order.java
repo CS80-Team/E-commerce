@@ -12,18 +12,18 @@ import java.util.UUID;
 @AllArgsConstructor
 @ToString
 @Entity
-@Table(name = "Orders")
+@Table(name = "orders")
 public class Order {
     @Id
-    @UuidGenerator
-    @Column(name = "id", nullable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "order_id", nullable = false, updatable = false, unique = true)
     private UUID ID;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false, updatable = false, unique = true)
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "payment_id", nullable = false)
+    @JoinColumn(name = "payment_id", nullable = false, updatable = false, unique = true)
     private Payment payment;
 }

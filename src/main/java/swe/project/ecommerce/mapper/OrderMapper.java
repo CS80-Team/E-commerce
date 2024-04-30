@@ -14,7 +14,7 @@ public class OrderMapper {
 
     public static Order maptoOrder(OrderDTO orderDTO){
         return new Order(
-                orderDTO.getId(),
+                orderDTO.getID(),
                 orderDTO.getUser(),
                 orderDTO.getPayment()
         );

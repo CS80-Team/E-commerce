@@ -14,7 +14,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrderDTO {
-    private UUID id;
+    private UUID ID;
     private User user;
     private Payment payment;
 }

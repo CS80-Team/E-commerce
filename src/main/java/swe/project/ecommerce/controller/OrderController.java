@@ -24,10 +24,10 @@ public class OrderController {
         return new ResponseEntity<>(saved_order, HttpStatus.CREATED);
     }
 
-    @GetMapping("{id}")
-    public ResponseEntity<OrderDTO> getOrderById(@PathVariable("id") UUID orderID){
-        OrderDTO orderDTO = orderService.getOrderbyID(orderID);
-        return ResponseEntity.ok(orderDTO);
-    }
+//    @GetMapping("{id}")
+//    public ResponseEntity<OrderDTO> getOrderById(@PathVariable("id") UUID orderID){
+//        OrderDTO orderDTO = orderService.getOrderbyID(orderID);
+//        return ResponseEntity.ok(orderDTO);
+//    }
 
 }

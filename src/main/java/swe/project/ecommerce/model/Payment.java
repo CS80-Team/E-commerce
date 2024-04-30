@@ -18,8 +18,8 @@ import java.util.UUID;
 @Table(name = "payments")
 public class Payment {
     @Id
-    @UuidGenerator
-    @Column(name = "id", nullable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "payment_id", nullable = false, updatable = false, unique = true)
     private UUID ID;
 
     @OneToMany
