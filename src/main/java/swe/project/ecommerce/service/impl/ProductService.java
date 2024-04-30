@@ -1,4 +1,4 @@
-package swe.project.ecommerce.service;
+package swe.project.ecommerce.service.impl;
 
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +9,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import swe.project.ecommerce.dto.ProductDto;
-import swe.project.ecommerce.mapper.ProductMapper;
+import swe.project.ecommerce.mapper.impl.ProductMapper;
 import swe.project.ecommerce.repository.ProductRepository;
 import swe.project.ecommerce.model.Product;
+import swe.project.ecommerce.service.CrudService;
+import swe.project.ecommerce.service.PageableService;
 
 import java.util.List;
 import java.util.UUID;

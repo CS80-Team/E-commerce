@@ -1,6 +1,7 @@
-package swe.project.ecommerce.mapper;
+package swe.project.ecommerce.mapper.impl;
 
 import swe.project.ecommerce.dto.ProdDetailsDto;
+import swe.project.ecommerce.mapper.Mapper;
 import swe.project.ecommerce.model.ProdDetails;
 
 import java.util.UUID;

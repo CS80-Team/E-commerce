@@ -1,6 +1,7 @@
-package swe.project.ecommerce.mapper;
+package swe.project.ecommerce.mapper.impl;
 
 import swe.project.ecommerce.dto.ProductDto;
+import swe.project.ecommerce.mapper.Mapper;
 import swe.project.ecommerce.model.Product;
 
 import java.util.HashSet;

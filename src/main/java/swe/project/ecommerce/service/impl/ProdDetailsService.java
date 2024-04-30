@@ -1,10 +1,10 @@
-package swe.project.ecommerce.service;
+package swe.project.ecommerce.service.impl;
 
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import swe.project.ecommerce.dto.ProdDetailsDto;
-import swe.project.ecommerce.mapper.ProdDetailsMapper;
+import swe.project.ecommerce.mapper.impl.ProdDetailsMapper;
 import swe.project.ecommerce.model.ProdDetails;
 import swe.project.ecommerce.repository.ProdDetailsRepository;
 

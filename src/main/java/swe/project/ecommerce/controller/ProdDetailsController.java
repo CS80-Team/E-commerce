@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import swe.project.ecommerce.dto.ProdDetailsDto;
 import swe.project.ecommerce.model.ProdDetails;
 import swe.project.ecommerce.model.Product;
-import swe.project.ecommerce.service.ProdDetailsService;
+import swe.project.ecommerce.service.impl.ProdDetailsService;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
