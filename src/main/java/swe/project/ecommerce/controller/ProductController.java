@@ -27,19 +27,19 @@ public final class ProductController {
 
     @PutMapping("/{productId}")
     public ResponseEntity<String> updateProduct(@PathVariable UUID productId, @RequestBody ProductDto productDto) {
-        return productService.updateProduct(productId, productDto);
+        return productService.updateEntity(productId, productDto);
     }
 
     @PostMapping("/{productId}")
     @ResponseStatus(HttpStatus.CREATED)
-    public void addNewProduct(@RequestBody ProductDto productDto) {
-        productService.addNewProduct(productDto);
+    public void createProduct(@RequestBody ProductDto productDto) {
+        productService.create(productDto);
     }
 
     @DeleteMapping("/{productId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteProduct(@PathVariable UUID productId) {
-        productService.deleteProduct(productId);
+        productService.deleteEntity(productId);
     }
 
     @GetMapping("/{productId}")
@@ -51,9 +51,9 @@ public final class ProductController {
     public Page<ProductDto> getAllProducts(@RequestParam(defaultValue = "0") Integer pageNo,
                                            @RequestParam(defaultValue = "10") Integer pageSize,
                                            @RequestParam(defaultValue = "ASC") Sort.Direction sortDir,
-                                           @RequestParam(defaultValue = "name") String sortBy
+                                           @RequestParam(defaultValue = "id") String sortBy
     ) {
-        return productService.getAllProducts(pageNo, pageSize, sortDir, sortBy);
+        return productService.getAllEntityPages(pageNo, pageSize, sortDir, sortBy);
     }
 
     @PostConstruct
@@ -65,7 +65,7 @@ public final class ProductController {
                     "Summary: " + i
             );
 
-            productService.addNewProduct(productDto);
+            productService.create(productDto);
         }
     }
 }

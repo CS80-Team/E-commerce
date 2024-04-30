@@ -13,17 +13,18 @@ import swe.project.ecommerce.mapper.ProductMapper;
 import swe.project.ecommerce.repository.ProductRepository;
 import swe.project.ecommerce.model.Product;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
 @AllArgsConstructor
-public class ProductService {
+public class ProductService implements CrudService<Product, ProductDto>, PageableService<ProductDto> {
 
     @Autowired
     private final ProductRepository productRepository;
     private final ProductMapper productMapper = new ProductMapper();
 
-    public Page<ProductDto> getAllProducts(Integer pageNo,
+    public Page<ProductDto> getAllEntityPages(Integer pageNo,
                                            Integer pageSize,
                                            Sort.Direction sortDir,
                                            String sortBy) {
@@ -37,11 +38,17 @@ public class ProductService {
         ).map(productMapper::mapToDto);
     }
 
-    public void addNewProduct(ProductDto productDto) {
+    @Override
+    public void create(ProductDto productDto) {
         productRepository.save(productMapper.mapToEntity(productDto));
     }
 
-    public ResponseEntity<String> updateProduct(UUID productId, ProductDto productDto) {
+    @Override
+    public List<Product> getAllEntities() {
+        return null;
+    }
+
+    public ResponseEntity<String> updateEntity(UUID productId, ProductDto productDto) {
         Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new IllegalStateException("Product with id " + productId + " does not exist"));
 
@@ -54,11 +61,12 @@ public class ProductService {
         return new ResponseEntity<>("Product updated successfully", HttpStatus.OK);
     }
 
-    public void deleteProduct(UUID productId) {
+    public void deleteEntity(UUID productId) {
         productRepository.deleteById(productId);
     }
 
-    public ProductDto getProduct(UUID productId) {
+    @Override
+    public ProductDto getEntityById(UUID productId) {
         Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new IllegalStateException("Product with id " + productId + " does not exist"));
 
