@@ -1,27 +1,28 @@
 package swe.project.ecommerce.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.stereotype.Component;
+import lombok.*;
+import swe.project.ecommerce.model.Product;
 
-import java.awt.Color;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Entity
-@Table(name = "product_details")
+@Data
 @Getter
 @Setter
-@Component
-public class ProductDetails {
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "prod_details")
+public class ProdDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id", nullable = false, unique = true, updatable = false)
     private UUID id;
 
-    @Column(name = "product_id", nullable = false, unique = true, updatable = false)
-    private UUID productId;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "product_id", referencedColumnName = "id", nullable = false, unique = true, updatable = false)
+    private Product product;
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime creationDate;
@@ -33,8 +34,8 @@ public class ProductDetails {
     private LocalDateTime manufactureDate;
 
     @Column(name = "color")
-    @Enumerated(EnumType.STRING)
-    private Color color;
+//    @Enumerated(EnumType.STRING)
+    private String color;
 
     @Column(name = "brand", nullable = false)
     private String brand;
@@ -47,5 +48,4 @@ public class ProductDetails {
 
     @Column(name = "quantity", nullable = false)
     private Integer quantity;
-
 }

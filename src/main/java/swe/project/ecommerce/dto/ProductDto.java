@@ -1,9 +1,8 @@
 package swe.project.ecommerce.dto;
 
-
-public record ProductDto (
+public record ProductDto(
         String name,
         String description,
-        Double price,
-        Integer quantity
-) {}
+        String summary
+) {
+}
