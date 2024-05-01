@@ -11,8 +11,6 @@ import java.util.UUID;
 
 @Entity
 @Table
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
 @SuperBuilder
@@ -28,4 +26,16 @@ public class Address {
     private String city;
     private String postalCode;
     private String phoneNumber;
+
+    public Address() {}
+
+    public Address(UUID id, String title, String street, String country, String city, String postalCode, String phoneNumber) {
+        this.id = id;
+        this.title = title;
+        this.street = street;
+        this.country = country;
+        this.city = city;
+        this.postalCode = postalCode;
+        this.phoneNumber = phoneNumber;
+    }
 }

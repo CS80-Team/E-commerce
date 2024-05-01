@@ -10,8 +10,6 @@ import java.util.UUID;
 
 @Entity
 @Table
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
 @SuperBuilder
@@ -27,4 +25,12 @@ public class Review {
     private String title;
 
     private String body;
+
+    public Review(){}
+
+    public Review(UUID id, String title, String body) {
+        this.id = id;
+        this.title = title;
+        this.body = body;
+    }
 }
