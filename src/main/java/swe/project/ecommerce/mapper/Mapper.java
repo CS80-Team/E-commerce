@@ -1,7 +1,7 @@
 package swe.project.ecommerce.mapper;
 
-public interface Mapper<Entity, EntityDto> {
-    Entity mapToEntity(EntityDto entityDto);
+public interface Mapper<Entity, EntityDTO> {
+    Entity mapToEntity(EntityDTO entityDTO);
 
-    EntityDto mapToDto(Entity entity);
+    EntityDTO mapToDTO(Entity entity);
 }
