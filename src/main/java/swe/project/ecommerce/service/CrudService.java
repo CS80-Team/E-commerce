@@ -1,6 +1,7 @@
 package swe.project.ecommerce.service;
 
 import org.springframework.http.ResponseEntity;
+import swe.project.ecommerce.dto.ProductDto;
 
 import java.util.List;
 import java.util.UUID;
