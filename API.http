@@ -1,0 +1,25 @@
+### GET request all users
+
+GET http://localhost:8080/e-commerce/users/all
+Accept: application/json
+
+### GET request all reviews
+GET http://localhost:8080/e-commerce/reviews
+Accept: application/json
+
+### GET request all addresses
+GET http://localhost:8080/e-commerce/addresses
+Accept: application/json
+
+### Create a User
+POST http://localhost:8080/e-commerce/users/add"
+Content-Type: application/json
+
+{
+  "id": "60313360-ab3f-4114-800c-a1d65asd65",
+  "first_name": "homos",
+  "last_name": "paul",
+  "username": "hal.howe@gmail.com",
+  "email": "lua.lowe",
+  "emailVerified": true
+}
