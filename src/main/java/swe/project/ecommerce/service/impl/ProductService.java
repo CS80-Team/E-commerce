@@ -1,5 +1,6 @@
 package swe.project.ecommerce.service.impl;
 
+<<<<<<< HEAD
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -80,4 +81,7 @@ public class ProductService implements CrudService<Product, ProductDto>, Pageabl
                 .orElseThrow(() -> new IllegalStateException("Product with id " + productId + " does not exist")));
     }
 
+=======
+public class ProductService {
+>>>>>>> 1f6c8ebfa03d5ce20a83b90cb9b2333b964c5094
 }

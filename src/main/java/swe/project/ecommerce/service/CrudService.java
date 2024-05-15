@@ -6,14 +6,16 @@ import swe.project.ecommerce.dto.ProductDto;
 import java.util.List;
 import java.util.UUID;
 
-public interface CrudService<Entity, EntityDto> {
-    void create(EntityDto entityDto);
+public interface CrudService<EntityDTO> {
+    void create(EntityDTO entityDTO);
 
-    List<Entity> getAllEntities();
+    List<EntityDTO> getAllEntities();
 
-    EntityDto getEntityById(UUID entityId);
+    List<EntityDTO> getAllEntitiesById(UUID entityId);
 
-    ResponseEntity<String> updateEntity(UUID entityUuid, EntityDto entityDto);
+    EntityDTO getEntityById(UUID entityId);
+
+    ResponseEntity<String> updateEntity(UUID entityUuid, EntityDTO entityDTO);
 
     void deleteEntity(UUID entityUuid);
 }

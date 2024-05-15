@@ -1,5 +1,6 @@
 package swe.project.ecommerce.mapper.impl;
 
+<<<<<<< HEAD
 import swe.project.ecommerce.dto.ProductDto;
 import swe.project.ecommerce.mapper.Mapper;
 import swe.project.ecommerce.model.Product;
@@ -28,4 +29,7 @@ public final class ProductMapper implements Mapper<Product, ProductDto> {
                 productDto.summary()
         );
     }
+=======
+public class ProductMapper {
+>>>>>>> 1f6c8ebfa03d5ce20a83b90cb9b2333b964c5094
 }
