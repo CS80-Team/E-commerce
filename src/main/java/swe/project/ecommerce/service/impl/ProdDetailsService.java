@@ -1,4 +1,4 @@
-package swe.project.ecommerce.service.impl;
+package swe.project.ecommerce.service.Impl;
 
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
