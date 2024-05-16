@@ -3,7 +3,7 @@ package swe.project.ecommerce.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import swe.project.ecommerce.dto.UserDTO;
-import swe.project.ecommerce.service.impl.UserServiceImpl;
+import swe.project.ecommerce.service.Impl.UserServiceImpl;
 
 import java.util.List;
 import java.util.UUID;

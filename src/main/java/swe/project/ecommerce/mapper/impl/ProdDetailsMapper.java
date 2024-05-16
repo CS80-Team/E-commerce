@@ -9,7 +9,7 @@ import java.util.UUID;
 public final class ProdDetailsMapper implements Mapper<ProdDetails, ProdDetailsDto> {
 
     @Override
-    public ProdDetailsDto mapToDto(ProdDetails prodDetails) {
+    public ProdDetailsDto mapToDTO(ProdDetails prodDetails) {
         return new ProdDetailsDto(
                 prodDetails.getProduct(),
                 prodDetails.getCreationDate(),

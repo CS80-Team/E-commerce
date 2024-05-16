@@ -1,6 +1,5 @@
-package swe.project.ecommerce.service.impl;
+package swe.project.ecommerce.service.Impl;
 
-<<<<<<< HEAD
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -28,9 +27,9 @@ public class ProductService implements CrudService<Product, ProductDto>, Pageabl
     private final ProductMapper productMapper = new ProductMapper();
 
     public Page<ProductDto> getAllEntityPages(Integer pageNo,
-                                           Integer pageSize,
-                                           Sort.Direction sortDir,
-                                           String sortBy) {
+                                              Integer pageSize,
+                                              Sort.Direction sortDir,
+                                              String sortBy) {
 
         return productRepository.findAll(
                 PageRequest.of(
@@ -38,7 +37,7 @@ public class ProductService implements CrudService<Product, ProductDto>, Pageabl
                         pageSize,
                         sortDir,
                         sortBy)
-        ).map(productMapper::mapToDto);
+        ).map(productMapper::mapToDTO);
     }
 
     @Override
@@ -47,7 +46,7 @@ public class ProductService implements CrudService<Product, ProductDto>, Pageabl
     }
 
     @Override
-    public List<Product> getAllEntities() {
+    public List<ProductDto> getAllEntities() {
         return null;
     }
 
@@ -73,15 +72,11 @@ public class ProductService implements CrudService<Product, ProductDto>, Pageabl
         Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new IllegalStateException("Product with id " + productId + " does not exist"));
 
-        return productMapper.mapToDto(product);
+        return productMapper.mapToDTO(product);
     }
 
     public ProductDto getProductById(UUID productId) {
-        return productMapper.mapToDto(productRepository.findById(productId)
+        return productMapper.mapToDTO(productRepository.findById(productId)
                 .orElseThrow(() -> new IllegalStateException("Product with id " + productId + " does not exist")));
     }
-
-=======
-public class ProductService {
->>>>>>> 1f6c8ebfa03d5ce20a83b90cb9b2333b964c5094
 }

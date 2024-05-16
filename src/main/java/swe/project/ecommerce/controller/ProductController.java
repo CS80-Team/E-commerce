@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import swe.project.ecommerce.dto.ProductDto;
-import swe.project.ecommerce.service.impl.ProductService;
+import swe.project.ecommerce.service.Impl.ProductService;
 
 import java.util.UUID;
 

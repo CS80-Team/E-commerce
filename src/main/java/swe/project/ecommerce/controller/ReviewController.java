@@ -3,7 +3,7 @@ package swe.project.ecommerce.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import swe.project.ecommerce.dto.ReviewDTO;
-import swe.project.ecommerce.service.impl.ReviewServiceImpl;
+import swe.project.ecommerce.service.Impl.ReviewServiceImpl;
 
 import java.util.List;
 import java.util.UUID;

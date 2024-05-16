@@ -4,6 +4,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import swe.project.ecommerce.dto.AddressDTO;
 import swe.project.ecommerce.mapper.impl.AddressMapper;
+import swe.project.ecommerce.model.Address;
 import swe.project.ecommerce.repository.AddressRepository;
 import swe.project.ecommerce.service.CrudService;
 
@@ -12,7 +13,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
-public class AddressServiceImpl implements CrudService<AddressDTO> {
+public class AddressServiceImpl implements CrudService<Address, AddressDTO> {
 
     private final AddressRepository addressRepository;
     private final AddressMapper addressMapper;
@@ -33,7 +34,6 @@ public class AddressServiceImpl implements CrudService<AddressDTO> {
         return addressRepository.findAll().stream().map(addressMapper::mapToDTO).collect(Collectors.toList());
     }
 
-    @Override
     public List<AddressDTO> getAllEntitiesById(UUID entityId) {
         return addressRepository.getAddressesById(entityId);
     }

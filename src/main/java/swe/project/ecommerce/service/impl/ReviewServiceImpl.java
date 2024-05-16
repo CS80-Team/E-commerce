@@ -1,9 +1,10 @@
-package swe.project.ecommerce.service.impl;
+package swe.project.ecommerce.service.Impl;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import swe.project.ecommerce.dto.ReviewDTO;
 import swe.project.ecommerce.mapper.impl.ReviewMapper;
+import swe.project.ecommerce.model.Review;
 import swe.project.ecommerce.repository.ReviewRepository;
 import swe.project.ecommerce.service.CrudService;
 
@@ -12,7 +13,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
-public class ReviewServiceImpl implements CrudService<ReviewDTO> {
+public class ReviewServiceImpl implements CrudService<Review, ReviewDTO> {
 
     private final ReviewRepository reviewRepository;
     private final ReviewMapper reviewMapper;
@@ -33,7 +34,6 @@ public class ReviewServiceImpl implements CrudService<ReviewDTO> {
         return reviewRepository.findAll().stream().map(reviewMapper::mapToDTO).collect(Collectors.toList());
     }
 
-    @Override
     public List<ReviewDTO> getAllEntitiesById(UUID entityId) {
         return reviewRepository.getReviewsByUserId(entityId);
     }

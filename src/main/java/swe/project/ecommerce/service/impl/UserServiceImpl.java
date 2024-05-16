@@ -1,9 +1,10 @@
-package swe.project.ecommerce.service.impl;
+package swe.project.ecommerce.service.Impl;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import swe.project.ecommerce.dto.UserDTO;
 import swe.project.ecommerce.mapper.impl.UserMapper;
+import swe.project.ecommerce.model.User;
 import swe.project.ecommerce.repository.UserRepository;
 import swe.project.ecommerce.service.CrudService;
 
@@ -12,7 +13,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
-public class UserServiceImpl implements CrudService<UserDTO> {
+public class UserServiceImpl implements CrudService<User, UserDTO> {
 
     private final UserRepository userRepository;
     private final UserMapper userMapper;
@@ -32,7 +33,6 @@ public class UserServiceImpl implements CrudService<UserDTO> {
         return userRepository.findAll().stream().map(userMapper::mapToDTO).collect(Collectors.toList());
     }
 
-    @Override
     public List<UserDTO> getAllEntitiesById(UUID entityId) {
         return null;
     }
