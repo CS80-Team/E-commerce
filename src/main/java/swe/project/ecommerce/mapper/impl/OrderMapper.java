@@ -1,9 +1,10 @@
-package swe.project.ecommerce.mapper;
+package swe.project.ecommerce.mapper.impl;
 
 import swe.project.ecommerce.dto.OrderDTO;
+import swe.project.ecommerce.mapper.Mapper;
 import swe.project.ecommerce.model.Order;
 
-public class OrderMapper implements Mapper<Order, OrderDTO>{
+public class OrderMapper implements Mapper<Order, OrderDTO> {
     public OrderDTO mapToDTO(Order order){
         return new OrderDTO(
                 order.getID(),
